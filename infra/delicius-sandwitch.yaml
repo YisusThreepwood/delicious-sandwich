@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  ProjectName:
+    Type: String
+
+Resources:
+  WebApplicationStore:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      AccessControl: PublicRead
+      BucketName: !Ref ProjectName
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+      WebsiteConfiguration:
+        IndexDocument: index.html
+
+  WebApplicationStorePermission:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebApplicationStore
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref WebApplicationStore
+                - /web/*
+            Principal: '*'
