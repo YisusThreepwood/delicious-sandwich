@@ -59,7 +59,7 @@ Resources:
         HttpVersion: 'http1.1'
         IPV6Enabled: false
         Origins:
-          - DomainName: !GetAtt WebApplicationStore.DomainName
+          - DomainName: !GetAtt WebApplicationStore.RegionalDomainName
             Id: !Sub 's3-origin-${WebApplicationStore}'
             OriginPath: ''
             S3OriginConfig:
