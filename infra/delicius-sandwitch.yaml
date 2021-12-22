@@ -1,10 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Simple CloudFront distribution with an S3 origin'
 
-Parameters:
-  ProjectName:
-    Type: String
-
 Resources:
   WebApplicationStore:
     Type: 'AWS::S3::Bucket'
@@ -13,10 +9,7 @@ Resources:
       Comment: 'Bucket to store Delicious-Sandwich web app'
     Properties:
       AccessControl: 'Private'
-      BucketName: !Ref ProjectName
-      Tags:
-        - Key: project
-          Value: !Ref ProjectName
+      BucketName: !Sub 'delicious-sandwich-${AWS::StackName}-${AWS::AccountId}'
 
   WebApplicationStorePermission:
     Type: 'AWS::S3::BucketPolicy'
