@@ -1,10 +1,10 @@
 # delicious-sandwich
 
-##Pre-requisitos
+## Pre-requisitos
 - GIT
 - Una cuenta de AWS
 
-##Despliegue
+## Despliegue
 ### Desplegar la infraestructura
 Una vez clonado el repositorio, podemos a utilizar la consola de AWS para desplegar el stack (Bucket S3 + Distribución de CloudFront)
 
@@ -40,14 +40,14 @@ y ya tenemos desplegada nuestra applicación web estática
 ## Visitar Delicious-Sandwich
 La URL de la web que acabamos de desplegar la podemos ver en los datos de salida (Outputs) del stack (el valor de CfDistributionDomainName)
 
-<img src="/home/sumxone/desarrollo/posts/delicious-sandwich/docu/images/web_url.png" width="80%"/>
+<img src="./docu/images/web_url.png" width="80%"/>
 
 y ya podemos visitas nuestra web estática :)
 
-<img src="/home/sumxone/desarrollo/posts/delicious-sandwich/docu/images/web.png" width="80%"/>
+<img src="./docu/images/web.png" width="80%"/>
 
 
-##Limpiar el stack
+## Limpiar el stack
 Antes de eliminar el stack tenemos que vaciar el bucket de S3.
 
 Una vez qeu tenemos vacío el Bucket de S3, ya podemos eliminar el stack desde la página de CloudFormation de la consola de AWS.
